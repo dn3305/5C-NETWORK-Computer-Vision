@@ -1,45 +1,35 @@
-Overview
-This project focuses on brain MRI image segmentation using two deep learning models: Attention U-Net and U-Net++. Both models were trained and evaluated on a brain MRI dataset using PyTorch, aiming to achieve high accuracy in segmenting regions of interest (tumor areas).
+Overview:
+This project focuses on brain MRI image segmentation using two models: Attention U-Net and U-Net++. Both were trained and evaluated using PyTorch to segment tumor areas in brain MRIs.
 
-Dependencies
-To run the project, you need:
-
+Dependencies:
 Python 3.7
 PyTorch
 Albumentations (for data augmentation)
 OpenCV (for image processing)
 Matplotlib (for visualization)
 Data Preparation
-The dataset consists of MRI images and their corresponding masks. We split the data into training, validation, and test sets, applying data augmentation techniques such as flipping, rotation, and scaling using Albumentations.
-https://www.kaggle.com/datasets/mateuszbuda/lgg-mri-segmentation/data can be found here
+The dataset (MRI images and masks) can be found here. The data is split into training, validation, and test sets, with augmentations applied.
 
-Models
-Attention U-Net
-Attention U-Net improves segmentation performance by applying attention mechanisms to focus on relevant image features during upsampling.
-
-U-Net++
-U-Net++ enhances U-Net by using nested dense skip connections, making it more capable of capturing fine-grained details.
-
+Models:
+Attention U-Net: Incorporates attention mechanisms for improved segmentation by focusing on relevant features.
+U-Net++: Extends U-Net with nested skip connections to capture more fine-grained details.
 Loss Function
-We used Dice Loss, designed for segmentation tasks to minimize the difference between predicted masks and ground truth masks.
+We used Dice Loss to measure the similarity between the predicted and true masks.
 
-Training
-Both models were trained for multiple epochs with optimizers like Adam and Adamax. Training progress is tracked using Dice Coefficient as a metric.
+Training:
+The models were trained for multiple epochs using optimizers such as Adam and Adamax. The Dice Coefficient was used to track progress.
 
-Visualization
-Predictions were visualized using test data, comparing ground truth masks with predicted masks from both models.
+Visualization:
+Both models' predictions were visualized and compared against the ground truth masks from the test dataset.
 
-Saving Models
-Both models can be saved and loaded using:
+Saving Models:
+You can save and load models using:
 
+python:
 torch.save(model.state_dict(), 'model.pth')
-
-Results
-
-
 How to Run
 Clone the repository.
-Install the dependencies using pip install -r requirements.txt.
-Download the dataset and update the paths in the notebook.
+Install dependencies using pip install -r requirements.txt.
+Download and update the dataset paths in the notebook.
 Run the training script to train the models.
-Use the saved weights to load the models for inference.
+Use the saved weights for inference.
